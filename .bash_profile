@@ -1,3 +1,5 @@
+## BASH PROFILE
+
 # Load .custom, .prompt, .exports, .aliases and .functions
 # .custom should be used for user custom settings
 
