@@ -7,3 +7,6 @@ for file in ~/.dotfiles/.{custom,prompt,exports,aliases,functions}; do
   [ -r "$file" ] && source "$file"
 done
 unset file
+
+# Load Z directory jumping
+. ~/.dotfiles/z.sh
