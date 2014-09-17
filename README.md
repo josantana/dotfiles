@@ -1,7 +1,7 @@
 Jo's dotfiles
 ========
 
-## Install / Sync
+## Install or Sync
 
 Installation is done with simple command:
 
@@ -15,8 +15,7 @@ Syncronization ignore IOS tweaks, updating only Terminal *dotfiles*.
 $ curl --silent https://raw.githubusercontent.com/josantana/dotfiles/master/.dotfiles/sync.sh | sh
 ```
 
-
-### The MIT License (MIT)
+## The MIT License (MIT)
 
 Copyright (c) 2014 Jo Santana
 
