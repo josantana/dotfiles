@@ -1,1 +1,34 @@
 ## ALIASES
+
+# Enable aliases to be sudo’ed
+alias sudo='sudo '
+alias please=sudo
+
+# Quicker navigation
+alias ~="cd ~"
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+
+# IP addresses
+alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
+alias ips="ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[0-9]\+\)\|[a-fA-F0-9:]\+\)' | awk '{ sub(/inet6? (addr:)? ?/, \"\"); print }'"
+alias localip="ipconfig getifaddr en0"
+
+# Enhanced WHOIS lookups
+alias whois="whois -h whois-servers.net"
+
+# Auto limit ping to 3/5 times
+alias ping3="ping -c 3 "
+alias ping5="ping -c 5 "
+
+# Flush Directory Service cache
+alias flush="dscacheutil -flushcache && killall -HUP mDNSResponder"
+
+# Show/hide hidden files in Finder
+alias show="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
+alias hide="defaults write com.apple.finder AppleShowAllFiles -bool false && killall Finder"
+
+# Edit hosts files
+alias hosts="sudo $EDITOR /etc/hosts"
