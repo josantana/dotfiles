@@ -13,5 +13,8 @@ custom_editor=""
 # PATH like a bawss
       PATH=/usr/local/bin
 PATH=$PATH:/usr/local/sbin
+PATH=$PATH:/usr/bin
 PATH=$PATH:/bin
-export PATH
+
+# Specific Stuff
+PATH=$PATH:$(brew --prefix coreutils)/libexec/gnubin
