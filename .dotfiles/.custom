@@ -1,4 +1,11 @@
 ## CUSTOM
 
-custom_username="josantana"
-custom_machine="Mac OS X"
+# Bash Prompt Customization
+custom_username=""
+custom_machine=""
+
+# Custom Aliases
+alias 2work="cd /path/to/work/space/"
+
+# Define Favorite Editor
+custom_editor=""
