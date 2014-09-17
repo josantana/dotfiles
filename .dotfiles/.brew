@@ -1,5 +1,7 @@
 ## BREW
 
+echo "Starting Homebrew tweaks"
+
 # Update Homebrew and upgrade any already-installed formulae
 brew update && brew upgrade
 
@@ -24,3 +26,5 @@ brew install tree
 
 # Remove outdated versions from the cellar
 brew cleanup
+
+echo $'\360\237\215\272' " DONE"
