@@ -16,9 +16,9 @@ if ["$has_brew" == "brew not found"]; then
 fi
 
 # Run OSX scripts
-./.dotfiles/.brew
-./.dotfiles/.osx
+source ~/.dotfiles/.brew
+source ~/.dotfiles/.osx
 
 # Remove scripts
-rm -rf ./.dotfiles/.brew
-rm -rf ./.dotfiles/.osx
+rm -rf ~/.dotfiles/.brew
+rm -rf ~/.dotfiles/.osx
