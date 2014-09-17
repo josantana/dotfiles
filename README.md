@@ -5,21 +5,14 @@ Jo's dotfiles
 
 Installation is done with simple command:
 
-{% highlight bash %}
-$ curl --silent https://raw.githubusercontent.com/josantana/dotfiles/master/.dotfiles/install.sh | sh
-{% endhighlight %}
+`$ curl --silent https://raw.githubusercontent.com/josantana/dotfiles/master/.dotfiles/install.sh | sh`
 
 Syncronization ignore IOS tweaks, updating only Terminal *dotfiles*.
 
-{% highlight bash %}
-$ curl --silent https://raw.githubusercontent.com/josantana/dotfiles/master/.dotfiles/sync.sh | sh
-{% endhighlight %}
+`$ curl --silent https://raw.githubusercontent.com/josantana/dotfiles/master/.dotfiles/sync.sh | sh`
 
----
 
-## License
-
-The MIT License (MIT)
+### The MIT License (MIT)
 
 Copyright (c) 2014 Jo Santana
 
