@@ -5,3 +5,6 @@ export PROMPT_COMMAND='echo -ne "\033]0;${PWD##*/}\007"'
 
 # Set default editor
 export EDITOR=$custom_editor || "vim"
+
+# Export Path set by user
+export PATH
