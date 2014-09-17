@@ -9,3 +9,9 @@ alias 2work="cd /path/to/work/space/"
 
 # Define Favorite Editor
 custom_editor=""
+
+# PATH like a bawss
+      PATH=/usr/local/bin
+PATH=$PATH:/usr/local/sbin
+PATH=$PATH:/bin
+export PATH
