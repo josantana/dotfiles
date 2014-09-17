@@ -8,3 +8,17 @@ cd; curl --silent -#L "https://github.com/josantana/dotfiles/tarball/master" | t
 
 # Z directory jumping (from https://github.com/rupa/z)
 curl -O "https://raw.githubusercontent.com/rupa/z/master/z.sh" && mv z.sh ~/.dotfiles/z.sh
+
+# Homebrew for the homeless
+has_brew = which brew
+if ["$has_brew" == "brew not found"]; then
+    ruby <(curl -fsSkL raw.github.com/mxcl/homebrew/go/install)
+fi
+
+# Run OSX scripts
+./.dotfiles/.brew
+./.dotfiles/.osx
+
+# Remove scripts
+rm -rf ./.dotfiles/.brew
+rm -rf ./.dotfiles/.osx
