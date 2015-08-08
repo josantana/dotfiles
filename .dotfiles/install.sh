@@ -11,7 +11,7 @@ curl -O "https://raw.githubusercontent.com/rupa/z/master/z.sh" && mv z.sh ~/.dot
 
 # Homebrew for the homeless
 if [ -z "$(which brew)" ]; then
-    ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
+    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
 
 # Run OSX scripts
