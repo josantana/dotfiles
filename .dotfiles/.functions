@@ -1,20 +1,69 @@
 ## FUNCTIONS
 
+# Reload bash
+function reload () {
+    source ~/.bashrc;
+}
+
 # Create a new directory and enter it
-function mkd ()
-{
+function mkd () {
     mkdir -p "$@" && cd "$@";
 }
 
-#Free port in use
-function free-port()
-{
+# Free port in use
+function free () {
     kill "$(lsof -t -i :$1)";
 }
 
+# Git commands
+function repo () {
+    if [ -z "${1}" ]; then
+        echo "";
+        echo "usage: repo [<command>] [<options>]";
+        echo "";
+        echo "    s, sync           fetch and pull";
+        echo "    p, pull           pull from remote";
+        echo "    l, list           list existing branches";
+        echo "    c, check          checkout on a existing branch";
+        echo "    n, new            checkout on a new branch";
+        echo "    m, merge          merge existing branch";
+        echo "    d, del            delete branch";
+        echo "";
+        return 1;
+    fi;
+    if [ "${1}" == 's' ] || [ "${1}" == 'sync' ]; then
+        git fetch && git pull;
+    fi;
+    if [ "${1}" == 'p' ] || [ "${1}" == 'pull' ]; then
+        git pull;
+    fi;
+    if [ "${1}" == 'l' ] || [ "${1}" == 'list' ]; then
+        git branch -a;
+    fi;
+    if [ "${1}" == 'c' ] || [ "${1}" == 'check' ]; then
+        if [ "${2}" == 'd' ]; then
+            git checkout develop;
+            return 1;
+        fi;
+        if [ "${2}" == 'm' ]; then
+            git checkout master;
+            return 1;
+        fi;
+        git checkout ${2};
+    fi;
+    if [ "${1}" == 'n' ] || [ "${1}" == 'new' ]; then
+        git checkout -b ${2};
+    fi;
+    if [ "${1}" == 'd' ] || [ "${1}" == 'del' ]; then
+        git checkout master && git branch -d ${2};
+    fi;
+    if [ "${1}" == 'm' ] || [ "${1}" == 'merge' ]; then
+        git merge ${2};
+    fi;
+}
+
 # Determine size of a file or total size of a directory
-function fs ()
-{
+function fs () {
     if du -b /dev/null > /dev/null 2>&1; then
         local arg=-sbh;
     else
@@ -28,8 +77,7 @@ function fs ()
 }
 
 # Start an HTTP server from a directory, optionally specifying the port
-function server ()
-{
+function server () {
     local port="${1:-8000}";
     sleep 1 && open "http://localhost:${port}/" &
     # Set the default Content-Type to `text/plain` instead of `application/octet-stream`
@@ -38,8 +86,7 @@ function server ()
 }
 
 # Open in browser
-function surf ()
-{
+function surf () {
     if [ -z '$1' ]; then
         open "$(/usr/local/bin/DefaultApplication -url 'http:')"
     else
@@ -48,8 +95,7 @@ function surf ()
 }
 
 # Create a data URL from a file
-function dataurl ()
-{
+function dataurl () {
     local mimeType=$(file -b --mime-type "$1");
     if [[ $mimeType == text/* ]]; then
         mimeType="${mimeType};charset=utf-8";
@@ -58,8 +104,7 @@ function dataurl ()
 }
 
 # Compare original and gzipped file size
-function gz ()
-{
+function gz () {
     local origsize=$(wc -c < "$1");
     local gzipsize=$(gzip -c "$1" | wc -c);
     local ratio=$(echo "$gzipsize * 100 / $origsize" | bc -l);
@@ -69,8 +114,7 @@ function gz ()
 
 # Show all the names (CNs and SANs) listed in the SSL certificate
 # for a given domain
-function getcertnames ()
-{
+function getcertnames () {
     if [ -z "${1}" ]; then
         echo "ERROR: No domain specified.";
         return 1;
