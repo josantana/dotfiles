@@ -6,6 +6,12 @@ function mkd ()
     mkdir -p "$@" && cd "$@";
 }
 
+#Free port in use
+function free-port()
+{
+    kill "$(lsof -t -i :$1)";
+}
+
 # Determine size of a file or total size of a directory
 function fs ()
 {
