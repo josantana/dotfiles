@@ -65,6 +65,20 @@ function repo () {
             echo "";
         fi;
     fi;
+    if [ "${1}" == 'm' ] || [ "${1}" == 'merge' ]; then
+        if [ "${2}" == 'd' ]; then
+            git merge develop;
+            return 1;
+        fi;
+        if [ "${2}" == 'm' ]; then
+            git merge master;
+            return 1;
+        fi;
+        git merge ${2};
+    fi;
+    if [ "${1}" == 'r' ] || [ "${1}" == 'rename' ]; then
+        git branch -m ${2};
+    fi;
     if [ "${1}" == 'd' ] || [ "${1}" == 'del' ]; then
         git checkout master;
         git branch -D ${2};
@@ -72,20 +86,6 @@ function repo () {
         git branch -a | egrep "remotes/origin/${2}$" | if [ "$?" != "1" ] ; then
             git push origin --delete ${2};
         fi;
-    fi;
-    if [ "${1}" == 'r' ] || [ "${1}" == 'rename' ]; then
-        if [ "${2}" == 'd' ]; then
-            git branch -m develop;
-            return 1;
-        fi;
-        if [ "${2}" == 'm' ]; then
-            git branch -m master;
-            return 1;
-        fi;
-        git branch -m ${2};
-    fi;
-    if [ "${1}" == 'm' ] || [ "${1}" == 'merge' ]; then
-        git merge ${2};
     fi;
 }
 
