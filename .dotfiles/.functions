@@ -23,12 +23,12 @@ function repo () {
         echo "";
         echo "    s, sync           fetch and pull";
         echo "    p, pull           pull from remote";
-        echo "    l, list           list existing branches";
-        echo "    c, check          checkout on a existing branch";
-        echo "    n, new            checkout on a new branch";
-        echo "    m, merge          merge existing branch";
+        echo "    l, list           list all existing branches";
+        echo "    n, new            create a new branch (if not on remote)";
+        echo "    c, check <m/d>    checkout on a existing branch <\"m\" is a shortcut for master, \"d\" for develop>";
+        echo "    m, merge <m/d>    merge existing branch <\"m\" is a shortcut for master, \"d\" for develop>";
         echo "    r, rename         rename current branch";
-        echo "    d, del            delete branch";
+        echo "    d, del            delete branch (locally and on remote)";
         echo "";
         return 1;
     fi;
@@ -74,6 +74,14 @@ function repo () {
         fi;
     fi;
     if [ "${1}" == 'r' ] || [ "${1}" == 'rename' ]; then
+        if [ "${2}" == 'd' ]; then
+            git branch -m develop;
+            return 1;
+        fi;
+        if [ "${2}" == 'm' ]; then
+            git branch -m master;
+            return 1;
+        fi;
         git branch -m ${2};
     fi;
     if [ "${1}" == 'm' ] || [ "${1}" == 'merge' ]; then
