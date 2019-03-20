@@ -28,7 +28,7 @@ function repo () {
         echo "    c, check <m/d>    checkout on a existing branch <\"m\" is a shortcut for master, \"d\" for develop>";
         echo "    m, merge <m/d>    merge existing branch <\"m\" is a shortcut for master, \"d\" for develop>";
         echo "    r, rename         rename current branch";
-        echo "    d, del            delete branch (locally and on remote)";
+        echo "    d, del            delete branch (on remote too)";
         echo "";
         return 1;
     fi;
