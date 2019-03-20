@@ -27,6 +27,7 @@ function repo () {
         echo "    c, check          checkout on a existing branch";
         echo "    n, new            checkout on a new branch";
         echo "    m, merge          merge existing branch";
+        echo "    r, rename         rename current branch";
         echo "    d, del            delete branch";
         echo "";
         return 1;
@@ -53,9 +54,14 @@ function repo () {
     fi;
     if [ "${1}" == 'n' ] || [ "${1}" == 'new' ]; then
         git checkout -b ${2};
+        git branch -u origin/${2};
+        git checkout ${2};
     fi;
     if [ "${1}" == 'd' ] || [ "${1}" == 'del' ]; then
         git checkout master && git branch -d ${2};
+    fi;
+    if [ "${1}" == 'r' ] || [ "${1}" == 'rename' ]; then
+        git branch -m ${2};
     fi;
     if [ "${1}" == 'm' ] || [ "${1}" == 'merge' ]; then
         git merge ${2};
