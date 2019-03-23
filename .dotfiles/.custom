@@ -14,6 +14,7 @@ custom_editor=""
       PATH=/usr/local/bin
 PATH=$PATH:/usr/local/sbin
 PATH=$PATH:/usr/bin
+PATH=$PATH:/usr/sbin
 PATH=$PATH:/bin
 PATH=$PATH:node_modules/.bin/
 
