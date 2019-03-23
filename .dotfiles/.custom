@@ -4,9 +4,6 @@
 custom_username=""
 custom_machine=""
 
-# Custom Aliases
-alias 2work="cd /path/to/work/space/"
-
 # Define Favorite Editor
 custom_editor=""
 
