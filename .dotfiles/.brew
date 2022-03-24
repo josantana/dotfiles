@@ -32,9 +32,10 @@ python3 get-pip.py --user
 pip3 install awscli --upgrade --user
 rm -rf get-pip.py
 
-# Install Node
-brew install node
-brew install yarn
+# Install Node Version Manager
+brew install nvm
+mkdir ~/.nvm
+#brew install yarn
 
 # Remove outdated versions from the cellar
 brew cleanup
