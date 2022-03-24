@@ -15,8 +15,8 @@ brew install findutils
 # Install Bash 4
 brew install bash
 
-# Install wget with IRI support
-brew install wget --enable-iri
+# Install wget
+brew install wget
 
 # Install everything else
 brew install ack
