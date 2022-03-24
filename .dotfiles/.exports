@@ -4,7 +4,14 @@
 export PROMPT_COMMAND='echo -ne "\033]0;${PWD##*/}\007"'
 
 # Set default editor
+export NVM_DIR=~/.nvm
+
+# Set default editor
 export EDITOR=$custom_editor || "vim"
+
+# Set NVM path
+export NVM_DIR=~/.nvm
+source $(brew --prefix nvm)/nvm.sh
 
 # Prefer US English and use UTF-8
 export LANG="en_US.UTF-8";
