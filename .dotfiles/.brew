@@ -35,7 +35,13 @@ rm -rf get-pip.py
 # Install Node Version Manager
 brew install nvm
 mkdir ~/.nvm
-#brew install yarn
+source ~/.bash_profile
+
+# Install Node
+nvm install 14
+
+# Install Yarn
+brew install yarn
 
 # Remove outdated versions from the cellar
 brew cleanup
